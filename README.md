@@ -1,94 +1,95 @@
-<!DOCTYPE html>
+      <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>STYNOR — Create Account</title>
+
+    <title>STYNOR | Registration</title>
 
     <style>
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
+            box-sizing: border-box;
         }
 
         body {
             min-height: 100vh;
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(135deg, #0f172a, #1d4ed8);
             display: flex;
-            justify-content: center;
             align-items: center;
-            background: linear-gradient(135deg, #0f172a, #1e3a8a);
+            justify-content: center;
             padding: 20px;
         }
 
-        .container {
+        .card {
             width: 100%;
             max-width: 420px;
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 20px;
             padding: 35px;
-            color: white;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
         }
 
         .logo {
             text-align: center;
             font-size: 32px;
-            font-weight: bold;
-            letter-spacing: 3px;
+            font-weight: 800;
+            letter-spacing: 4px;
+            color: #1d4ed8;
             margin-bottom: 8px;
         }
 
         .subtitle {
             text-align: center;
-            color: #cbd5e1;
+            color: #64748b;
             margin-bottom: 30px;
+            font-size: 15px;
         }
 
-        .input-group {
+        .input-box {
             margin-bottom: 18px;
         }
 
         label {
             display: block;
             margin-bottom: 7px;
+            color: #334155;
             font-size: 14px;
-            color: #e2e8f0;
+            font-weight: 600;
         }
 
         input {
             width: 100%;
-            padding: 14px;
-            border: 1px solid rgba(255,255,255,0.2);
+            height: 48px;
+            padding: 0 14px;
+            border: 1px solid #cbd5e1;
             border-radius: 10px;
-            background: rgba(255,255,255,0.1);
-            color: white;
             outline: none;
             font-size: 15px;
-        }
-
-        input::placeholder {
-            color: #94a3b8;
+            color: #0f172a;
+            background: #f8fafc;
+            transition: 0.2s;
         }
 
         input:focus {
-            border-color: #60a5fa;
+            border-color: #2563eb;
+            background: #ffffff;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
         }
 
         button {
             width: 100%;
-            padding: 14px;
+            height: 50px;
+            margin-top: 5px;
             border: none;
             border-radius: 10px;
             background: #2563eb;
             color: white;
             font-size: 16px;
-            font-weight: bold;
+            font-weight: 700;
             cursor: pointer;
-            margin-top: 8px;
             transition: 0.2s;
         }
 
@@ -98,43 +99,48 @@
         }
 
         #message {
-            text-align: center;
+            min-height: 22px;
             margin-top: 18px;
-            min-height: 20px;
+            text-align: center;
             font-size: 14px;
         }
 
-        .login {
+        .footer {
             text-align: center;
-            margin-top: 22px;
-            color: #cbd5e1;
-            font-size: 14px;
+            margin-top: 25px;
+            color: #94a3b8;
+            font-size: 12px;
         }
     </style>
 </head>
 
 <body>
 
-    <div class="container">
+    <div class="card">
 
         <div class="logo">STYNOR</div>
-        <div class="subtitle">Create your account</div>
 
-        <form id="registerForm">
+        <div class="subtitle">
+            Create your account
+        </div>
 
-            <div class="input-group">
+        <form id="registrationForm">
+
+            <div class="input-box">
                 <label for="username">Username</label>
+
                 <input
                     type="text"
                     id="username"
-                    placeholder="Enter username"
+                    placeholder="Enter your username"
                     required
                     minlength="3"
                 >
             </div>
 
-            <div class="input-group">
+            <div class="input-box">
                 <label for="email">Email</label>
+
                 <input
                     type="email"
                     id="email"
@@ -143,8 +149,9 @@
                 >
             </div>
 
-            <div class="input-group">
+            <div class="input-box">
                 <label for="password">Password</label>
+
                 <input
                     type="password"
                     id="password"
@@ -154,8 +161,9 @@
                 >
             </div>
 
-            <div class="input-group">
+            <div class="input-box">
                 <label for="confirmPassword">Confirm password</label>
+
                 <input
                     type="password"
                     id="confirmPassword"
@@ -164,44 +172,44 @@
                 >
             </div>
 
-            <button type="submit">Create account</button>
+            <button type="submit">
+                Create Account
+            </button>
 
             <div id="message"></div>
 
         </form>
 
-        <div class="login">
-            Already have an account? Sign in
+        <div class="footer">
+            STYNOR • Demo Registration
         </div>
 
     </div>
 
     <script>
-        const form = document.getElementById("registerForm");
+        const form = document.getElementById("registrationForm");
         const message = document.getElementById("message");
 
         form.addEventListener("submit", function(event) {
+
             event.preventDefault();
 
-            const username = document.getElementById("username").value.trim();
-            const email = document.getElementById("email").value.trim();
-            const password = document.getElementById("password").value;
+            const password =
+                document.getElementById("password").value;
+
             const confirmPassword =
                 document.getElementById("confirmPassword").value;
 
             if (password !== confirmPassword) {
                 message.textContent = "Passwords do not match.";
-                return;
-            }
-
-            if (password.length < 6) {
-                message.textContent =
-                    "Password must contain at least 6 characters.";
+                message.style.color = "#dc2626";
                 return;
             }
 
             message.textContent =
-                "Registration successful! (Demo only)";
+                "Registration successful!";
+
+            message.style.color = "#16a34a";
 
             form.reset();
         });
